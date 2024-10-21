@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+   <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Notes App</h1>
+            <div id="userGreeting"></div>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Enter your name or email" required>
+                <button type="submit">Login</button>
+            </form>
+            <button id="themeToggle" aria-label="Toggle Dark/Light Mode">Toggle Dark/Light Mode</button>
+        </header>
+
+        <main>
+            <div id="noteForm">
+                <input type="text" id="noteTitle" placeholder="Note Title" required>
+                <textarea id="noteContent" placeholder="Note Content" required></textarea>
+                <button id="createNote">Create Note</button>
+            </div>
+            <input type="text" id="searchBar" placeholder="Search notes...">
+            <div id="notesContainer"></div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+   
+</body>
+</html>
