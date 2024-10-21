@@ -38,3 +38,11 @@ function createNote(title, content) {
     document.getElementById('noteTitle').value = '';
     document.getElementById('noteContent').value = '';
 }
+
+// Function to delete a note
+function deleteNote(index) {
+    if (confirm("Are you sure you want to delete this note?")) {
+        notes.splice(index, 1);
+        displayNotes(notes);
+    }
+}
