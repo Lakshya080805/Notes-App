@@ -1,4 +1,4 @@
-let noteS = [];
+let notes = [];
 let currentUser = null;
 
 // Handle user login
@@ -46,3 +46,43 @@ function deleteNote(index) {
         displayNotes(notes);
     }
 }
+
+// Handle search functionality
+document.getElementById('searchBar').addEventListener('input', function () {
+    const query = this.value.toLowerCase();
+    const filteredNotes = notes.filter(note => 
+        note.title.toLowerCase().includes(query) || 
+        note.content.toLowerCase().includes(query)
+    );
+    displayNotes(filteredNotes);
+});
+
+// Function to edit a note
+function editNote(index) {
+    const newContent = prompt("Edit your note content:", notes[index].content);
+    if (newContent !== null) {
+        notes[index].content = newContent;
+        notes[index].dateModified = new Date();
+        displayNotes(notes);
+    }
+}
+
+// Function to display notes
+function displayNotes(notesToDisplay) {
+    const notesContainer = document.getElementById('notesContainer');
+    notesContainer.innerHTML = '';
+    notesToDisplay.forEach((note, index) => {
+        const noteDiv = document.createElement('div');
+        noteDiv.className = 'note';
+        noteDiv.innerHTML = `
+            <h3>${note.title}</h3>
+            <p>${note.content}</p>
+            <small>Created on: ${note.dateCreated.toLocaleString()}</small>
+            <small>Last modified: ${note.dateModified.toLocaleString()}</small>
+            <button onclick="editNote(${index})" aria-label="Edit note">Edit</button>
+           
+        `;
+        notesContainer.appendChild(noteDiv);
+    });
+}
+
