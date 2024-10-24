@@ -13,19 +13,19 @@
             <h1>Notes App</h1>
             <div id="userGreeting"></div>
             <form id="loginForm">
-                <input type="text" id="username" placeholder="Enter your name or email" required>
-                <button type="submit">Login</button>
+                <input tabindex="2" type="text" id="username" placeholder="Enter your name or email" required>
+                <button tabindex="3" type="submit">Login</button>
             </form>
-            <button id="themeToggle" aria-label="Toggle Dark/Light Mode">Toggle Dark/Light Mode</button>
+            <button tabindex="1" id="themeToggle" aria-label="Toggle Dark/Light Mode">Toggle Dark/Light Mode</button>
         </header>
 
         <main>
             <div id="noteForm">
-                <input type="text" id="noteTitle" placeholder="Note Title" required>
-                <textarea id="noteContent" placeholder="Note Content" required></textarea>
-                <button id="createNote">Create Note</button>
+                <input tabindex="4" type="text" id="noteTitle" placeholder="Note Title" required>
+                <textarea tabindex="5" id="noteContent" placeholder="Note Content" required></textarea>
+                <button tabindex="6" id="createNote">Create Note</button>
             </div>
-            <input type="text" id="searchBar" placeholder="Search notes...">
+            <input tabindex="7" type="text" id="searchBar" placeholder="Search notes...">
             <div id="notesContainer"></div>
         </main>
     </div>

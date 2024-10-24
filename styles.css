@@ -199,3 +199,37 @@ main {
     background-color: #333;
     color: #fff;
 }
+  
+  /* .note-content {
+    flex-grow: 1; 
+  }
+  
+  .edit, .delete {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+  
+  .delete {
+    background-color: #f44336; 
+  }
+  
+  .edit:hover, .delete:hover {
+    opacity: 0.8; 
+  } */
+
+  .note-actions {
+    margin-top: 10px; /* Space between content and buttons */
+}
+
+.note-actions button {
+    margin-right: 5px; /* Space between buttons */
+}
+
+.edit{
+    margin-top: 20rem;
+}

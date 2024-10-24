@@ -1,10 +1,17 @@
 let notes = [];
 let currentUser = null;
 
+
+if (localStorage.getItem('currentUser')) {
+    currentUser = localStorage.getItem('currentUser');
+    document.getElementById('userGreeting').innerText = `Welcome, ${currentUser}`;
+}
+
 // Handle user login
 document.getElementById('loginForm').addEventListener('submit', function (e) {
     e.preventDefault();
     currentUser = document.getElementById('username').value;
+    localStorage.setItem('currentUser', currentUser);
     document.getElementById('userGreeting').innerText = `Welcome, ${currentUser}`;
     document.getElementById('loginForm').reset();
 });
@@ -75,14 +82,22 @@ function displayNotes(notesToDisplay) {
         const noteDiv = document.createElement('div');
         noteDiv.className = 'note';
         noteDiv.innerHTML = `
+        <div class="note-content">
             <h3>${note.title}</h3>
             <p>${note.content}</p>
             <small>Created on: ${note.dateCreated.toLocaleString()}</small>
             <small>Last modified: ${note.dateModified.toLocaleString()}</small>
-            <button onclick="editNote(${index})" aria-label="Edit note">Edit</button>
            
+
+            <div class="note-actions">
+            <button class="edit" onclick="editNote(${index})" aria-label="Edit note">Edit</button>
+            <button class="delete" onclick="deleteNote(${index})" aria-label="Delete note">Delete</button>
+            </div>
+        </div>
         `;
         notesContainer.appendChild(noteDiv);
     });
 }
+
+
 
