@@ -1,10 +1,6 @@
 let notes = [];
 let currentUser = null;
 
-
-
-
-// Handle user login
 document.getElementById('loginForm').addEventListener('submit', function (e) {
     e.preventDefault();
     currentUser = document.getElementById('username').value;
@@ -13,12 +9,10 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
     document.getElementById('loginForm').reset();
 });
 
-// Handle theme toggle
 document.getElementById('themeToggle').addEventListener('click', function () {
     document.body.classList.toggle('dark-mode');
 });
 
-// Handle note creation
 document.getElementById('createNote').addEventListener('click', function () {
     const title = document.getElementById('noteTitle').value;
     const content = document.getElementById('noteContent').value;
@@ -29,7 +23,6 @@ document.getElementById('createNote').addEventListener('click', function () {
     }
 });
 
-// Function to create a new note
 function createNote(title, content) {
     const note = {
         title,
@@ -43,7 +36,6 @@ function createNote(title, content) {
     document.getElementById('noteContent').value = '';
 }
 
-// Function to delete a note
 function deleteNote(index) {
     if (confirm("Are you sure you want to delete this note?")) {
         notes.splice(index, 1);
@@ -51,7 +43,6 @@ function deleteNote(index) {
     }
 }
 
-// Handle search functionality
 document.getElementById('searchBar').addEventListener('input', function () {
     const query = this.value.toLowerCase();
     const filteredNotes = notes.filter(note => 
@@ -61,7 +52,6 @@ document.getElementById('searchBar').addEventListener('input', function () {
     displayNotes(filteredNotes);
 });
 
-// Function to edit a note
 function editNote(index) {
     const newContent = prompt("Edit your note content:", notes[index].content);
     if (newContent !== null) {
@@ -71,7 +61,6 @@ function editNote(index) {
     }
 }
 
-// Function to display notes
 function displayNotes(notesToDisplay) {
     const notesContainer = document.getElementById('notesContainer');
     notesContainer.innerHTML = '';
@@ -96,7 +85,6 @@ function displayNotes(notesToDisplay) {
     });
 }
 
-// Local Storage for login
 if (localStorage.getItem('currentUser')) {
     currentUser = localStorage.getItem('currentUser');
     document.getElementById('userGreeting').innerText = `Welcome, ${currentUser}`;

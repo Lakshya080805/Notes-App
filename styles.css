@@ -203,11 +203,11 @@ main {
   
 
   .note-actions {
-    margin-top: 10px; /* Space between content and buttons */
+    margin-top: 10px;
 }
 
 .note-actions button {
-    margin-right: 5px; /* Space between buttons */
+    margin-right: 5px; 
 }
 
 .edit{
