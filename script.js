@@ -2,10 +2,7 @@ let notes = [];
 let currentUser = null;
 
 
-if (localStorage.getItem('currentUser')) {
-    currentUser = localStorage.getItem('currentUser');
-    document.getElementById('userGreeting').innerText = `Welcome, ${currentUser}`;
-}
+
 
 // Handle user login
 document.getElementById('loginForm').addEventListener('submit', function (e) {
@@ -97,6 +94,12 @@ function displayNotes(notesToDisplay) {
         `;
         notesContainer.appendChild(noteDiv);
     });
+}
+
+// Local Storage for login
+if (localStorage.getItem('currentUser')) {
+    currentUser = localStorage.getItem('currentUser');
+    document.getElementById('userGreeting').innerText = `Welcome, ${currentUser}`;
 }
 
 
